@@ -23,7 +23,7 @@ const FilterScreen: React.FC = () => {
     const handleApplyFilters = () => {
         const [filterType, filterValue] = selectedFilter.split(':');
         dispatch(applyFilters({ filterType, filterValue }));
-        // navigation.goBack();
+        navigation.goBack();
     };
 
     const handleFilterOptionPress = (filterValue: string, filterType: string) => {
