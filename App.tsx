@@ -1,7 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import store from './src/redux/app/store';
-import AppNavigator from './src/navigation/AppNavigator';
+import MainStackNavigator from './src/navigation/MainStackNavigator';
 import { fetchGames } from './src/redux/features/game/actions';
 
 store.dispatch(fetchGames());
@@ -12,7 +12,7 @@ store.dispatch(fetchGames());
 const App = () => {
   return (
     <Provider store={store}>
-      <AppNavigator />
+      <MainStackNavigator />
     </Provider>
   );
 };

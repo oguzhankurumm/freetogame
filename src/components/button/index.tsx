@@ -5,14 +5,14 @@ import styles from './styles';
 interface ButtonProps {
   title: string;
   onPress: () => void;
-  absolute?: boolean;
+  marginTop?: number;
 }
 
-const Button: React.FC<ButtonProps> = ({ title, onPress, absolute }) => {
+const Button: React.FC<ButtonProps> = ({ title, onPress, marginTop }) => {
   return (
     <TouchableOpacity
       activeOpacity={0.5}
-      style={[styles.container, absolute && styles.absolute]}
+      style={[styles.container, { marginTop }]}
       onPress={onPress}
     >
       <Text style={styles.title}>{title}</Text>

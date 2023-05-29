@@ -7,14 +7,15 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/app/store';
 
 // COMPONENTS - MODALS
-import ListItem from '../../components/list-item';
-import ListHeader from '../../components/list-header';
+import { ListItem, ListHeader } from '../../components';
+import { LoadingModal } from '../../modals';
 
 const Home: React.FC = () => {
     const { games, filteredGames, loading } = useSelector((state: RootState) => state.game);
 
     return (
         <View style={styles.container}>
+            <LoadingModal visible={loading} />
             <FlatList
                 data={filteredGames.length > 0 ? filteredGames : games}
                 keyExtractor={(item) => item.id.toString()}

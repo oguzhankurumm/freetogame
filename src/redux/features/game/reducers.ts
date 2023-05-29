@@ -2,7 +2,7 @@ import { Alert } from 'react-native';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Game, GameSliceState } from './types';
 import { fetchGames, applyFilters } from './actions';
-import { getErrorMessage } from '../../../utils';
+import { getErrorMessage } from '../../../utils/errorMessage';
 
 const initialState: GameSliceState = {
     games: [],

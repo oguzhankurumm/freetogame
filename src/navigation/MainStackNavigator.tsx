@@ -6,14 +6,16 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { boldText } from '../assets/fonts';
 import { dark } from '../assets/colors';
 
+// COMPONENTS
+import { ButtonIcon } from '../components';
+
 // SCREENS
-import HomeScreen from '../screens/Home';
-import FilterScreen from '../screens/Filters';
-import ButtonIcon from '../components/button-icon';
+import { Filters } from '../screens';
+import BottomTabNavigator from '../navigation/BottomTabNavigator';
 
 const Stack = createNativeStackNavigator();
 
-const AppNavigator: React.FC = () => {
+const MainStackNavigator: React.FC = () => {
     const screenOptions = {
         title: 'FreeToGame',
         headerTintColor: dark,
@@ -27,23 +29,33 @@ const AppNavigator: React.FC = () => {
     return (
         <NavigationContainer>
             <Stack.Navigator
-                initialRouteName='Home'
+                initialRouteName="HomeScreen"
                 screenOptions={screenOptions}
             >
                 <Stack.Screen
-                    name='Home'
-                    component={HomeScreen}
+                    name="HomeScreen"
+                    component={BottomTabNavigator}
                     options={({ navigation }) => ({
-                        headerRight: () => <ButtonIcon iconName='funnel-outline' onPress={() => navigation.navigate('Filters')} />
+                        headerRight: () => (
+                            <ButtonIcon
+                                iconName="funnel-outline"
+                                onPress={() => navigation.navigate('Filters')}
+                            />
+                        ),
                     })}
                 />
                 <Stack.Group screenOptions={{ presentation: 'modal' }}>
                     <Stack.Screen
-                        name='Filters'
-                        component={FilterScreen}
+                        name="Filters"
+                        component={Filters}
                         options={({ navigation }) => ({
                             title: 'Filters',
-                            headerRight: () => <ButtonIcon iconName='close' onPress={() => navigation.goBack()} />
+                            headerRight: () => (
+                                <ButtonIcon
+                                    iconName="close"
+                                    onPress={() => navigation.goBack()}
+                                />
+                            ),
                         })}
                     />
                 </Stack.Group>
@@ -52,4 +64,4 @@ const AppNavigator: React.FC = () => {
     );
 };
 
-export default AppNavigator;
+export default MainStackNavigator;
