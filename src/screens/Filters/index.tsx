@@ -5,15 +5,14 @@ import { useNavigation } from '@react-navigation/native';
 
 // REDUX
 import { useDispatch, useSelector } from 'react-redux';
+import { AnyAction, ThunkDispatch } from '@reduxjs/toolkit';
 import { RootState } from '../../redux/app/store';
 import { applyFilters } from '../../redux/features/game/actions';
-import { AnyAction, ThunkDispatch } from '@reduxjs/toolkit';
 import { setFilter } from '../../redux/features/game/reducers';
 
-// COMPONENTS - DATA - MODALS
+// COMPONENTS - DATA
 import { sortByOptions, filterByCategoryOptions, filterByPlatformOptions } from './options';
-import Button from '../../components/button';
-import FilterSortItem from '../../components/filter-sort-item';
+import { FilterSortItem, Button } from '../../components';
 
 const FilterScreen: React.FC = () => {
     const dispatch = useDispatch<ThunkDispatch<RootState, void, AnyAction>>();

@@ -20,7 +20,6 @@ const Stats: React.FC = () => {
         return Alert.alert('Error', 'Failed to send email');
     };
 
-
     return (
         <KeyboardAwareScrollView nestedScrollEnabled style={styles.keyboard}>
             <View style={styles.container}>
